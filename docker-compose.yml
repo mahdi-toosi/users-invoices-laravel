@@ -1,0 +1,14 @@
+version: "3"
+services:
+    postgresql:
+        image: bitnami/mysql:latest
+        ports:
+            - "5532:3306"
+        volumes:
+            - "mysql_data:/bitnami/mysql"
+        env_file:
+            - "./.env"
+    # .env needs MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE
+volumes:
+    mysql_data:
+        driver: local
