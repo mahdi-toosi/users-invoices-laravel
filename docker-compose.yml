@@ -1,6 +1,6 @@
 version: "3"
 services:
-    postgresql:
+    mysql:
         image: bitnami/mysql:latest
         ports:
             - "5532:3306"

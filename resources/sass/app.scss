@@ -1,23 +1,23 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
 //@import 'bootstrap/scss/bootstrap';
 @import "dashboard/bootstrap.min.css";
-@import 'toastr/build/toastr.min.css';
+@import "toastr/build/toastr.min.css";
 @import "@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css";
 @import "/node_modules/select2/dist/css/select2.css";
 @import "vazirmatn/Vazirmatn-font-face.css";
-@import './dashboard/header-colors.css';
-@import './dashboard/light-theme.css';
-@import './dashboard/bootstrap-extended.css';
-@import './dashboard/pace.min.css';
-@import './dashboard/style.css';
-@import 'metismenu/dist/metisMenu.min.css';
-@import 'perfect-scrollbar/css/perfect-scrollbar.css';
+@import "./dashboard/header-colors.css";
+@import "./dashboard/light-theme.css";
+@import "./dashboard/bootstrap-extended.css";
+@import "./dashboard/pace.min.css";
+@import "./dashboard/style.css";
+@import "metismenu/dist/metisMenu.min.css";
+@import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 body {
     font-family: Vazirmatn, sans-serif;
@@ -47,3 +47,5 @@ body {
 .select2-selection__arrow {
     height: 35px !important;
 }
+
+@import "./dashboard.scss";
