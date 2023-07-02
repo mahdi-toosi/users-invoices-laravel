@@ -23,6 +23,20 @@ body {
     font-family: Vazirmatn, sans-serif;
 }
 
+#app {
+    width: 100vw;
+    overflow: hidden;
+}
+
+.__table_wrapper {
+    overflow: scroll;
+}
+
+th,
+td {
+    white-space: nowrap;
+}
+
 .avatar {
     width: 35px;
     height: 35px;

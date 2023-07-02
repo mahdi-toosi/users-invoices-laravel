@@ -3,7 +3,7 @@
 @section('content')
     <x-page.header>
         <h4 class="mb-0">لیست صورتحساب ها</h4>
-        <a href="{{ route('invoices.create') }}" class="btn btn-primary">ایجاد صورتحساب جدید</a>
+        <a href="{{ route('invoices.create') }}" class="btn btn-primary">افزودن</a>
     </x-page.header>
 
     <div class="raw mt-4">

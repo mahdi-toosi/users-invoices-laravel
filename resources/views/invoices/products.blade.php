@@ -3,7 +3,7 @@
 @section('content')
     <x-page.header>
         <h4 class="mb-0">لیست محصولات</h4>
-        <a href="{{ route('products.create') }}" class="btn btn-primary">ایجاد محصول جدید</a>
+        <a href="{{ route('products.create') }}" class="btn btn-primary">افزودن</a>
     </x-page.header>
 
     <div class="raw mt-4">

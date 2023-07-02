@@ -6,7 +6,7 @@
     <div class="col-md-4">
         <div class="card border">
             <div class="card-header pt-3">
-                <h5>ایجاد کاربر جدید</h5>
+                <h5>افزودن</h5>
             </div>
             <div class="card-body">
                 <form action="{{ route('users.update', $user) }}" method="POST" enctype="multipart/form-data">

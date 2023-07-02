@@ -3,4 +3,7 @@
     bottom: 2rem;
     left: 2rem;
     z-index: 1;
+    span {
+        transform: translateY(1px);
+    }
 }
