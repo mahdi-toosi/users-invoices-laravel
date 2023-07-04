@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $admin = User::factory(['is_admin' => true, 'email' => 'admin@gmail.com'])
+        $admin = User::factory(['is_admin' => true, 'email' => 'admin@gmail.com', 'mobile_number' => '09301111357'])
             ->has(
                 Invoice::factory()
                     ->count(5)
@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             )
             ->create();
 
-        $user = User::factory()->create(['is_admin' => false, 'email' => 'user@gmail.com']);
+        $user = User::factory()->create(['is_admin' => false, 'email' => 'user@gmail.com', 'mobile_number' => '09302211357']);
 
         User::factory()
             ->count(20)

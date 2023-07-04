@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('full_name')->virtualAs("CONCAT(first_name,' ',last_name)");
             $table->string('email')->unique();
+            $table->string('mobile_number', 20);
+            $table->timestamp('mobile_verified_at')->nullable();
+            $table->string('mobile_verify_code')->nullable();
             $table->boolean('is_admin')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

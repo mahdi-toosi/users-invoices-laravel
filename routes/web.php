@@ -1,29 +1,23 @@
 <?php
 
+use App\Http\Controllers\Auth\VerifyMobileController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::middleware(['auth'])->group(function () {
+    Route::view('verify-mobile', 'auth.verify-mobile')->name('verification-mobile.notice');
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+    Route::post('verify-mobile', [VerifyMobileController::class, '__invoke'])
+        ->middleware(['throttle:6,1'])
+        ->name('verification.verify-mobile');
+});
 
-Auth::routes();
+Route::middleware(['auth', 'verify.mobile'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::middleware('auth')->group(function () {
     Route::middleware('can:is-admin')->group(function () {
         Route::controller(UserController::class)
             ->prefix('users')
@@ -69,3 +63,4 @@ Route::middleware('auth')->group(function () {
     });
 });
 
+Auth::routes();

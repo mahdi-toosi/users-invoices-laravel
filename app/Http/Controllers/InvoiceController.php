@@ -32,7 +32,8 @@ class InvoiceController extends Controller
         return view('invoices.index', compact('invoices', 'keyword'));
     }
 
-    public function products(Invoice $invoice) {
+    public function products(Invoice $invoice)
+    {
         $keyword = request()->input('keyword');
 
         $products = Product::query()

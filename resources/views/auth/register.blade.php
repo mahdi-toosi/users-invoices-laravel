@@ -16,7 +16,7 @@
                             <label for="first_name" class="col-md-4 col-form-label text-md-end">نام</label>
 
                             <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('name') }}" required autocomplete="first_name" autofocus>
+                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
                                 <x-form.form-error name="first_name" />
                             </div>
                         </div>
@@ -27,6 +27,15 @@
                             <div class="col-md-6">
                                 <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
                                 <x-form.form-error name="last_name" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="mobile_number" class="col-md-4 col-form-label text-md-end">موبایل</label>
+
+                            <div class="col-md-6">
+                                <input id="mobile_number" type="text" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" value="{{ old('mobile_number') }}" required autocomplete="mobile_number" autofocus>
+                                <x-form.form-error name="mobile_number" />
                             </div>
                         </div>
 

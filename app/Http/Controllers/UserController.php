@@ -102,9 +102,9 @@ class UserController extends Controller
             $randomName = Str::random(40);
             $extension = $file->getClientOriginalExtension();
             $folder = date('Y-m-d'); // Get the current date as the folder name
-            $fileName = $randomName . '_' . date('His') . '.' . $extension;
+            $fileName = $randomName.'_'.date('His').'.'.$extension;
 
-            $path = $file->storeAs('avatars/' . $folder, $fileName, 'public');
+            $path = $file->storeAs('avatars/'.$folder, $fileName, 'public');
         }
 
         return $path;
