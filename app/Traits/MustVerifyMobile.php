@@ -2,7 +2,8 @@
 
 namespace App\Traits;
 
-//use App\Notifications\SendVerifySMS;
+use MessageWay\MessageWayLaravel\Facades\MessageWayLaravel;
+
 trait MustVerifyMobile
 {
     public function hasVerifiedMobile(): bool
@@ -20,11 +21,18 @@ trait MustVerifyMobile
 
     public function sendMobileVerificationNotification(bool $newData = false): void
     {
+        $code = random_int(111111, 999999);
+
         if ($newData) {
             $this->forceFill([
-                'mobile_verify_code' => random_int(111111, 999999),
+                'mobile_verify_code' => $code,
             ])->save();
         }
-        //        $this->notify(new SendVerifySMS);
+
+        MessageWayLaravel::sendViaSMS(
+            auth()->user()->mobile_number,
+            env('MESSAGE_WAY_TEMPLATE_ID'),
+            0, ['code' => $code]
+        );
     }
 }

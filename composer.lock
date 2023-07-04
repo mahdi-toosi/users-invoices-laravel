@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b6a82ee670b25ed7dd7f0249334ce26",
+    "content-hash": "295977fc7fd704d84d5ef2fbbea41bc0",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1886,6 +1886,118 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "messageway/messagewaylaravel",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MessageWay/MessageWayLaravel.git",
+                "reference": "6f16eb8e2153e84c3423d1ec032afcbdbaa5c96b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MessageWay/MessageWayLaravel/zipball/6f16eb8e2153e84c3423d1ec032afcbdbaa5c96b",
+                "reference": "6f16eb8e2153e84c3423d1ec032afcbdbaa5c96b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~9",
+                "messageway/messagewayphp": "^1.1.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~7",
+                "phpunit/phpunit": "~9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MessageWay\\MessageWayLaravel\\MessageWayLaravelServiceProvider"
+                    ],
+                    "aliases": {
+                        "MessageWayLaravel": "MessageWay\\MessageWayLaravel\\Facades\\MessageWayLaravel"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MessageWay\\MessageWayLaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ehsan Sabet",
+                    "email": "ehsan.sabet@hotmail.com"
+                }
+            ],
+            "description": "This package allows you to connect to MSGWay.com server from your laravel applications.",
+            "homepage": "https://github.com/messageway/MessageWayLaravel",
+            "keywords": [
+                "MessageWayLaravel",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/MessageWay/MessageWayLaravel/issues",
+                "source": "https://github.com/MessageWay/MessageWayLaravel/tree/v1.0.3"
+            },
+            "time": "2023-01-30T18:11:31+00:00"
+        },
+        {
+            "name": "messageway/messagewayphp",
+            "version": "v1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MessageWay/MessageWayPHP.git",
+                "reference": "6f405511b3b7cc3d86cd50e1846e1e36dcba0513"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MessageWay/MessageWayPHP/zipball/6f405511b3b7cc3d86cd50e1846e1e36dcba0513",
+                "reference": "6f405511b3b7cc3d86cd50e1846e1e36dcba0513",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "9.5.x-dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MessageWay\\Api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ehsan Sabet",
+                    "email": "ehsan.sabet@hotmail.com"
+                }
+            ],
+            "description": "This SDK allows you to connect to MSGWay.com server from your php application.",
+            "homepage": "https://MSGway.com",
+            "keywords": [
+                "ivr",
+                "message",
+                "otp",
+                "sms"
+            ],
+            "support": {
+                "issues": "https://github.com/MessageWay/MessageWayPHP/issues",
+                "source": "https://github.com/MessageWay/MessageWayPHP/tree/v1.1.4"
+            },
+            "time": "2023-01-30T17:53:55+00:00"
         },
         {
             "name": "monolog/monolog",

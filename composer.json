@@ -11,6 +11,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
+        "messageway/messagewaylaravel": "^1.0",
         "morilog/jalali": "3.*"
     },
     "require-dev": {
