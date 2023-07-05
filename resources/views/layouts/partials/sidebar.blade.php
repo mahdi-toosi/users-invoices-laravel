@@ -1,5 +1,5 @@
-<aside class="sidebar-wrapper" data-simplebar="true">
-    <div class="sidebar-header">
+<aside class="sidebar-wrapper bg-white" data-simplebar="true">
+    <div class="sidebar-header bg-white">
         <i style="font-size: 24px" class="bi bi-slack"></i>
         <div class="toggle-icon ms-auto"><i class="bi bi-list"></i></div>
     </div>
