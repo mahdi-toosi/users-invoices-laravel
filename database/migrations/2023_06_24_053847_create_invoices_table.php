@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('name');
-            $table->date('date');
+            $table->integer('year');
+            $table->integer('month');
             $table->timestamps();
         });
     }

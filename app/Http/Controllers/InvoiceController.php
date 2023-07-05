@@ -56,7 +56,6 @@ class InvoiceController extends Controller
     public function store(StoreInvoiceRequest $request)
     {
         $validatedData = $request->validated();
-        $validatedData['date'] = $this->convertDateToMiladi($validatedData['date']);
         $invoice = Invoice::query()->create($validatedData);
 
         return redirect()
@@ -75,8 +74,7 @@ class InvoiceController extends Controller
     {
 
         $validatedData = $request->validated();
-        $validatedData['date'] = $this->convertDateToMiladi($validatedData['date']);
-        $invoice = $invoice->update($validatedData);
+        $invoice->update($validatedData);
 
         return redirect()
             ->route('users.invoices', $invoice->user_id)

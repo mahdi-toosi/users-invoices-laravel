@@ -4,9 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Invoice>
- */
 class InvoiceFactory extends Factory
 {
     /**
@@ -18,7 +15,8 @@ class InvoiceFactory extends Factory
     {
         return [
             'name' => 'Invoice '.$this->faker->numberBetween(1, 100),
-            'date' => $this->faker->date(),
+            'year' => $this->faker->numberBetween(1401, 1403),
+            'month' => $this->faker->numberBetween(1, 12),
         ];
     }
 }

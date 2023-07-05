@@ -9,7 +9,7 @@ class Invoice extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'date', 'user_id'];
+    protected $fillable = ['name', 'year', 'month', 'user_id'];
 
     public function scopeSearch($query, $keyword)
     {

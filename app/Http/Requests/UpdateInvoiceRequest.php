@@ -26,7 +26,8 @@ class UpdateInvoiceRequest extends FormRequest
         return [
             'user_id' => 'required|integer|exists:users,id',
             'name' => 'required|string|min:1|max:255',
-            'date' => 'required',
+            'year' => 'required|integer|min:1390',
+            'month' => 'required|integer|min:1|max:12',
             'description' => 'nullable|string|min:1|max:500',
         ];
     }
