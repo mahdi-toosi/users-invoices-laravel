@@ -14,6 +14,8 @@ class User extends Authenticatable implements IMustVerifyMobile
 {
     use HasApiTokens, HasFactory, Notifiable, MustVerifyMobile;
 
+    protected string $username = 'mobile_number';
+
     protected $fillable = [
         'first_name',
         'last_name',

@@ -3,20 +3,20 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center mt-5">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">ورود</div>
+                <div class="card-header">صفحه ورود به حساب کاربری</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">ایمیل</label>
+                            <label for="mobile_number" class="col-md-4 col-form-label text-md-end">شماره موبایل</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
-                                <x-form.form-error name="email" />
+                                <input id="mobile_number" type="text" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" value="{{ old('mobile_number') }}" autocomplete="mobile_number" autofocus>
+                                <x-form.form-error name="mobile_number" />
                             </div>
                         </div>
 
@@ -46,13 +46,17 @@
                                 <button type="submit" class="btn btn-primary">
                                     ورود
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        رمز ورود خود را فراموش کرده اید؟
-                                    </a>
-                                @endif
                             </div>
+                        </div>
+                        <div class="row mt-2">
+                            @if (Route::has('register'))
+                                <div class="col-md-8 offset-md-4">
+                                    حساب ندارید؟
+                                    <a class="" href="{{ route('register') }}" style="text-decoration: none">
+                                        ثبت نام کنید
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </form>
                 </div>
