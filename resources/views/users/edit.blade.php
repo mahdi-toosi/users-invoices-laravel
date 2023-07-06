@@ -23,9 +23,9 @@
                             <x-form.form-error name="last_name" />
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">ایمیل</label>
-                            <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}">
-                            <x-form.form-error name="email" />
+                            <label for="mobile_number" class="form-label">ایمیل</label>
+                            <input type="text" id="mobile_number" name="mobile_number" class="form-control @error('mobile_number') is-invalid @enderror" value="{{ old('mobile_number', $user->mobile_number) }}">
+                            <x-form.form-error name="mobile_number" />
                         </div>
                         <div class="mb-3">
                             <x-form.form-error name="avatar" />

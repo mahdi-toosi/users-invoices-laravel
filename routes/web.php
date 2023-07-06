@@ -18,6 +18,10 @@ Route::middleware(['auth', 'verify.mobile'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+    Route::get('/me/invoices', [InvoiceController::class, 'getMyInvoices'])->name('me.invoices');
+    Route::get('/me/invoices/{invoice}/products', [InvoiceController::class, 'getMyInvoiceProduct'])
+        ->name('me.invoices.products');
+
     Route::middleware('can:is-admin')->group(function () {
         Route::controller(UserController::class)
             ->prefix('users')

@@ -34,5 +34,13 @@
             </a>
         </li>
         @endcan
+        <hr>
+        <li>
+            <a href="{{ route('me.invoices') }}" class="bg-light-info">
+                <div class="parent-icon"><i class="bi bi-receipt"></i>
+                </div>
+                <div class="menu-title">صورتحساب من</div>
+            </a>
+        </li>
     </ul>
 </aside>

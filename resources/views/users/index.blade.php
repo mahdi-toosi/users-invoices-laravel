@@ -15,18 +15,18 @@
 
 
         @foreach($users as $user)
-            <a href="{{ route('users.invoices', $user->id) }}" class="d-flex text-body mb-2" style="gap: .5rem">
+            <a href="{{ route('users.invoices', $user->id) }}" class="d-flex text-body mb-3" style="gap: .5rem">
                 <div class="avatar avatar-small">
                     <img src="{{ $user->avatar ? asset('storage/'.$user->avatar) : asset('/img/user.png')}}" alt="Avatar">
                 </div>
 
                 <div>
                     <h6 class="mb-0">{{ $user->first_name }} {{ $user->last_name }}</h5>
-                    <small>{{$user->email}}</small>
+                    <small>{{$user->mobile_number}}</small>
                 </div>
             </a>
 
-            <!-- <td>{{ $user->email }}</td>
+            <!-- <td>{{ $user->mobile_number }}</td>
             <td>
                 <a href="{{ route('users.invoices', $user->id) }}" class="btn btn-sm btn-info">صورتحساب ها</a>
                 <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">ویرایش</a>

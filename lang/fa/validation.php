@@ -187,5 +187,6 @@ return [
         'invoice_id' => 'صورتحساب',
         'product_id' => 'محصول',
         'price' => 'قیمت',
+        'avatar' => 'آواتار',
     ],
 ];

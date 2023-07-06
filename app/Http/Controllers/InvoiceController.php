@@ -8,7 +8,6 @@ use App\Models\Invoice;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Morilog\Jalali\CalendarUtils;
 
 class InvoiceController extends Controller
 {
@@ -16,15 +15,8 @@ class InvoiceController extends Controller
     {
         $keyword = request()->input('keyword');
 
-        $invoices = Invoice::query()
-            ->with('user')
-            ->when($keyword, function ($query, $keyword) {
-                return $query->search($keyword);
-            });
-
-        if (request()->has('user_id')) {
-            $invoices = $invoices->where('user_id', request()->input('user_id'));
-        }
+        $invoices = $this->getInvoicesQuery();
+        $invoices = $this->filterInvoices($invoices);
 
         $invoices = $invoices->orderByDesc('id')->paginate(10);
         $invoices->appends(request()->query());
@@ -36,16 +28,39 @@ class InvoiceController extends Controller
     {
         $keyword = request()->input('keyword');
 
-        $products = Product::query()
-            ->where('invoice_id', $invoice->id)
-            ->when($keyword, function ($query, $keyword) {
-                return $query->search($keyword);
-            });
+        $products = $this->getProductsQuery($invoice);
+        $products = $this->filterProducts($products);
 
         $products = $products->orderByDesc('id')->paginate(10);
         $products->appends(request()->query());
 
         return view('invoices.products', compact('products', 'invoice', 'keyword'));
+    }
+
+    public function getMyInvoices()
+    {
+        $keyword = request()->input('keyword');
+
+        $invoices = $this->getInvoicesQuery()->where('user_id', auth()->id());
+        $invoices = $this->filterInvoices($invoices);
+
+        $invoices = $invoices->orderByDesc('id')->paginate(10);
+        $invoices->appends(request()->query());
+
+        return view('me.invoices', compact('invoices', 'keyword'));
+    }
+
+    public function getMyInvoiceProduct(Invoice $invoice)
+    {
+        $keyword = request()->input('keyword');
+
+        $products = $this->getProductsQuery($invoice)->where('user_id', auth()->id());
+        $products = $this->filterProducts($products);
+
+        $products = $products->orderByDesc('products.id')->paginate(10);
+        $products->appends(request()->query());
+
+        return view('me.invoices-products', compact('products', 'invoice', 'keyword'));
     }
 
     public function create()
@@ -105,8 +120,43 @@ class InvoiceController extends Controller
         return response()->json($invoice->toArray());
     }
 
-    private function convertDateToMiladi($date)
+    private function getInvoicesQuery()
     {
-        return CalendarUtils::createCarbonFromFormat('Y/m/d', $date)->format('Y-m-d');
+        $keyword = request()->input('keyword');
+
+        return Invoice::query()
+            ->with('user')
+            ->when($keyword, function ($query, $keyword) {
+                return $query->search($keyword);
+            });
+    }
+
+    private function getProductsQuery(Invoice $invoice)
+    {
+        $keyword = request()->input('keyword');
+
+        return Product::query()
+            ->leftJoin('invoices', 'invoices.id', 'products.invoice_id')
+            ->where('invoice_id', $invoice->id)
+            ->when($keyword, function ($query, $keyword) {
+                return $query->search($keyword);
+            })->select('products.*');
+    }
+
+    private function filterInvoices($invoices)
+    {
+        if (request()->has('user_id')) {
+            $invoices = $invoices->where('user_id', request()->input('user_id'));
+        }
+
+        return $invoices;
+    }
+
+    private function filterProducts($products)
+    {
+        // No filtering implemented for products at the moment,
+        // but this function can be used to add filters if needed in the future
+
+        return $products;
     }
 }

@@ -1,5 +1,6 @@
 <table class="table mt-3">
     <thead>
+
     <tr>
         <th>#</th>
         <th>نام</th>
@@ -17,6 +18,7 @@
             <td>{{ $invoice->user->full_name }}</td>
             <td>@persianNumber($invoice->year)</td>
             <td>{{ get_month_name($invoice->month) }} </td>
+
             <td>
                 <a href="{{ route('invoices.products', $invoice->id) }}" class="btn btn-sm btn-info">محصولات</a>
                 <a href="{{ route('invoices.edit', $invoice) }}" class="btn btn-sm btn-primary">ویرایش</a>

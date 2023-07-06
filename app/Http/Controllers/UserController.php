@@ -53,8 +53,11 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $validatedData = $request->validated();
+
         $validatedData['avatar'] = $this->uploadAvatarAndGetPath($request);
         $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['mobile_verified_at'] = now();
+
         User::create($validatedData);
 
         return redirect()->route('users.index');
