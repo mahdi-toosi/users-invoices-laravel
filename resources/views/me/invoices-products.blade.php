@@ -16,30 +16,34 @@
                             <button class="btn btn-outline-secondary" type="submit">جستجو</button>
                         </div>
                     </form>
-                    <table class="table mt-3">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>نام محصول</th>
-                            <th>صورتحساب</th>
-                            <th>قیمت</th>
-                            <th>توضیحات</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($products as $product)
-                            <tr style="vertical-align: baseline;">
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->invoice->name }}</td>
-                                <td>{{ $product->price }}</td>
-                                <td>{{ \Illuminate\Support\Str::limit($product->description, 20)  }}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
 
-                    {{ $products->links() }}
+                    <div class="__table_wrapper">
+                        <table class="table mt-3">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>نام محصول</th>
+                                <th>صورتحساب</th>
+                                <th>قیمت</th>
+                                <th>توضیحات</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($products as $product)
+                                <tr style="vertical-align: baseline;">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->invoice->name }}</td>
+                                    <td>{{ $product->price }}</td>
+                                    <td>{{ \Illuminate\Support\Str::limit($product->description, 20)  }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+
+                        {{ $products->links() }}
+                    </div>
+
                 </div>
             </div>
         </div>

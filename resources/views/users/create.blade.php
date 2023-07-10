@@ -31,7 +31,7 @@
 
                     <div class="mb-3">
                         <label for="mobile_number" class="form-label">شماره موبایل</label>
-                        <input type="text" id="mobile_number" name="mobile_number" class="form-control @error('mobile_number') is-invalid @enderror" value="{{ old('mobile_number') }}">
+                        <input type="tel" id="mobile_number" name="mobile_number" class="form-control @error('mobile_number') is-invalid @enderror" value="{{ old('mobile_number') }}">
                         <x-form.form-error name="mobile_number" />
                     </div>
                     <div class="mb-3">

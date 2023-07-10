@@ -34,7 +34,7 @@
                             <label for="mobile_number" class="col-md-4 col-form-label text-md-end">موبایل</label>
 
                             <div class="col-md-6">
-                                <input id="mobile_number" type="text" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" value="{{ old('mobile_number') }}" required autocomplete="mobile_number" autofocus>
+                                <input id="mobile_number" type="tel" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" value="{{ old('mobile_number') }}" required autocomplete="mobile_number" autofocus>
                                 <x-form.form-error name="mobile_number" />
                             </div>
                         </div>

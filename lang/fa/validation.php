@@ -152,6 +152,7 @@ return [
     'attributes' => [
         'name' => 'نام',
         'username' => 'نام کاربری',
+        'mobile_number' => 'شماره موبایل',
         'email' => 'پست الکترونیکی',
         'first_name' => 'نام',
         'last_name' => 'نام خانوادگی',

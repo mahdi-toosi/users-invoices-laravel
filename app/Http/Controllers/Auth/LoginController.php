@@ -21,7 +21,15 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public function redirectTo()
+    {
+
+        if (request()->user()->is_admin) {
+            return RouteServiceProvider::HOME;
+        }
+
+        return route('me.invoices');
+    }
 
     public function username()
     {
