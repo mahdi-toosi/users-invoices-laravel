@@ -1,9 +1,81 @@
-.__add_user_btn {
+// overwrites
+body {
+    font-family: Vazirmatn, sans-serif;
+}
+
+#app {
+    width: 100vw;
+    overflow: hidden;
+}
+
+.top-header .navbar .user-name {
+    padding-left: unset;
+    padding-right: 10px;
+}
+
+.__table_wrapper {
+    overflow: scroll;
+}
+
+th,
+td {
+    white-space: nowrap;
+}
+
+.img-thumbnail {
+    border-radius: 6px;
+    max-height: 20rem;
+    object-fit: cover;
+    width: 100%;
+}
+
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-selection__rendered {
+    line-height: 32px !important;
+}
+
+.select2-container .select2-selection--single {
+    height: 36px !important;
+}
+
+.select2-selection__arrow {
+    height: 35px !important;
+}
+
+.top-header .navbar .dropdown-user-setting .dropdown-menu::after {
+    left: unset;
+    right: 16px;
+}
+
+// *****************************************
+// custom styles
+// *****************************************
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.__float_add_data_btn {
     position: fixed;
     bottom: 2rem;
     left: 2rem;
     z-index: 1;
+    padding: 0.475rem 0.75rem !important;
+
     span {
         transform: translateY(1px);
     }
 }
+

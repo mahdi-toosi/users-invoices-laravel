@@ -6,7 +6,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">شماره موبایل خود را تأیید کنید</div>
-
+                    
                     <div class="card-body">
 
                         <div class="mb-4 text-sm text-gray-600">
@@ -24,8 +24,10 @@
                                     <label for="code" class="form-label d-none">کد</label>
 
                                     <div class="col-md-3">
-                                        <input id="code" type="text" class="form-control @error('code') is-invalid @enderror" name="code" value="{{ old('code') }}" required autofocus>
-                                        <x-form.form-error name="code" />
+                                        <input id="code" type="text"
+                                               class="form-control @error('code') is-invalid @enderror" name="code"
+                                               value="{{ old('code') }}" required autofocus>
+                                        <x-form.form-error name="code"/>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-3">تایید</button>

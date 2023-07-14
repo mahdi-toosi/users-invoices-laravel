@@ -23,12 +23,11 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-
         if (request()->user()->is_admin) {
             return RouteServiceProvider::HOME;
         }
 
-        return route('me.invoices');
+        return route('me.invoices', null, false);
     }
 
     public function username()

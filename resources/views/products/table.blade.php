@@ -20,7 +20,8 @@
                 <td>{{ \Illuminate\Support\Str::limit($product->description, 20)  }}</td>
                 <td>
                     <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-primary">ویرایش</a>
-                    <form action="{{ route('products.destroy', $product) }}" method="POST" style="display: inline-block;">
+                    <form action="{{ route('products.destroy', $product) }}" method="POST"
+                          style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger">حذف</button>

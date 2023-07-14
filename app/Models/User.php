@@ -23,17 +23,17 @@ class User extends Authenticatable implements IMustVerifyMobile
         'mobile_number',
         'mobile_verified_at',
         'mobile_verify_code',
-        'email',
         'password',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
+        'mobile_verify_code',
     ];
 
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'mobile_verified_at' => 'datetime',
     ];
 
     public function invoices(): HasMany
@@ -45,7 +45,7 @@ class User extends Authenticatable implements IMustVerifyMobile
     {
         return $query->where('first_name', 'LIKE', "%{$keyword}%")
             ->orWhere('last_name', 'LIKE', "%{$keyword}%")
-            ->orWhere('email', 'LIKE', "%{$keyword}%");
+            ->orWhere('mobile_number', 'LIKE', "%{$keyword}%");
     }
 
     public function isAdmin()

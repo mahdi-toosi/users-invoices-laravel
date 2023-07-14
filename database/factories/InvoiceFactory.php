@@ -17,6 +17,7 @@ class InvoiceFactory extends Factory
             'name' => 'Invoice '.$this->faker->numberBetween(1, 100),
             'year' => $this->faker->numberBetween(1401, 1403),
             'month' => $this->faker->numberBetween(1, 12),
+            'is_cash' => $this->faker->numberBetween(0, 1),
         ];
     }
 }
