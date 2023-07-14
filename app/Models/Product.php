@@ -11,6 +11,11 @@ class Product extends Model
 
     protected $fillable = ['name', 'price', 'description', 'invoice_id'];
 
+    public function scopeSearch($query, $keyword)
+    {
+        return $query->where('name', 'LIKE', "%{$keyword}%");
+    }
+
     public function invoice()
     {
         return $this->belongsTo(Invoice::class);

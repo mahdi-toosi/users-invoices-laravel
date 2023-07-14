@@ -11,6 +11,7 @@ class ProductController extends Controller
 {
     public function index()
     {
+
         $keyword = request()->input('keyword');
 
         $products = Product::query()
