@@ -13,7 +13,7 @@ class Product extends Model
 
     public function scopeSearch($query, $keyword)
     {
-        return $query->where('name', 'LIKE', "%{$keyword}%");
+        return $query->where('products.name', 'LIKE', "%{$keyword}%");
     }
 
     public function invoice()

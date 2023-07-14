@@ -13,7 +13,7 @@ class Invoice extends Model
 
     public function scopeSearch($query, $keyword)
     {
-        return $query->where('name', 'LIKE', "%{$keyword}%");
+        return $query->where('invoices.name', 'LIKE', "%{$keyword}%");
     }
 
     public function user()
