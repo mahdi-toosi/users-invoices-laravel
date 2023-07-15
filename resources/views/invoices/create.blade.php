@@ -10,14 +10,28 @@
                 <div class="card-body">
                     <form action="{{ route('invoices.store') }}" method="POST" id="form" enctype="multipart/form-data">
                         @csrf
+
                         <div class="mb-3">
-                            <label for="user_id" class="form-label">کاربر</label>
-                            <select id="user_id" name="user_id"
-                                    class="form-control @error('user_id') is-invalid @enderror">
-                                <option value="0" selected>جستجو کاربر</option>
-                            </select>
-                            <x-form.form-error name="user_id"/>
+
+                            @if($user)
+                                <label for="hard_user_id" class="form-label">کاربر</label>
+                                <input type="hidden" id="hard_user_id" name="user_id"
+                                       class="form-control"
+                                       value="{{ $user->id }}">
+                                <input type="text" id="hard_user_id" name="user_full_name"
+                                       class="form-control"
+                                       disabled
+                                       value="{{ $user->full_name }}">
+                            @else
+                                <label for="user_id" class="form-label">کاربر</label>
+                                <select id="user_id" name="user_id"
+                                        class="form-control @error('user_id') is-invalid @enderror">
+                                    <option value="0" selected>جستجو کاربر</option>
+                                </select>
+                                <x-form.form-error name="user_id"/>
+                            @endif
                         </div>
+
                         <div class="mb-3">
                             <label for="name" class="form-label">نام صورتحساب</label>
                             <input type="text" id="name" name="name"

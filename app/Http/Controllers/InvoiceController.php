@@ -6,6 +6,7 @@ use App\Http\Requests\StoreInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
 use App\Models\Invoice;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -61,8 +62,13 @@ class InvoiceController extends Controller {
             compact( 'products', 'invoice', 'keyword' ) );
     }
 
-    public function create() {
-        return view( 'invoices.create' );
+    public function create( Request $request ) {
+        $user_id = $request->query->getInt( 'user_id' );
+        if ( $user_id ) {
+            $user = User::query()->findOrFail( $user_id );
+        }
+
+        return view( 'invoices.create', [ 'user' => $user ] );
     }
 
     public function store( StoreInvoiceRequest $request ) {
@@ -106,7 +112,7 @@ class InvoiceController extends Controller {
         $invoice = Invoice::query()->limit( 4 )->select( 'id', 'name' );
 
         if ( $request->has( 'search' ) && $request->search != '' ) {
-            $invoice = $invoice->where( 'full_name', 'like',
+            $invoice = $invoice->where( 'name', 'like',
                 '%' . $request->search . '%' );
         }
 

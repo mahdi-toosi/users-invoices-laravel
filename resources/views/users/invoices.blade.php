@@ -27,7 +27,8 @@
         </div>
     </div>
 
-    <a href="{{ route('invoices.create') }}" class="btn btn-primary rounded-circle __float_add_data_btn">
+    <a href="{{ route('invoices.create', ['user_id'=>$user->id]) }}"
+       class="btn btn-primary rounded-circle __float_add_data_btn">
         <span class="bi bi-plus-lg"></span>
     </a>
 @endsection
