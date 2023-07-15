@@ -1,11 +1,12 @@
 <div class="__table_wrapper">
     <table class="table mt-3">
         <thead>
-        
+
         <tr>
             <th>#</th>
             <th>نام</th>
             <th>کاربر</th>
+            <th>وضعیت</th>
             <th>سال</th>
             <th>ماه</th>
             <th>فعالیت ها</th>
@@ -17,6 +18,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $invoice->name }}</td>
                 <td>{{ $invoice->user->full_name }}</td>
+                <td>{{ $invoice->is_cash ? 'نقدی': 'غیر نقدی' }}</td>
                 <td>@persianNumber($invoice->year)</td>
                 <td>{{ get_month_name($invoice->month) }} </td>
 

@@ -32,17 +32,16 @@
 
                         <div class="mb-3">
                             <label for="status" class="form-label">وضعیت</label>
-
                             <select
                                 id="status"
                                 class="form-control @error('is_cash') is-invalid @enderror"
                                 name="is_cash"
                             >
-                                <option value="1" {{ old('is_cash') == '1' ? 'selected' : ''}}>
+                                <option value="1" {{ $invoice->is_cash == '1' ? 'selected' : ''}}>
                                     نقدی
                                 </option>
 
-                                <option value="0" {{ old('is_cash') == '0' ? 'selected' : ''}}>
+                                <option value="0" {{ $invoice->is_cash == '0' ? 'selected' : ''}}>
                                     غیر نقدی
                                 </option>
                             </select>
