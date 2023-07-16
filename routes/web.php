@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\VerifyMobileController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
+Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::view('verify-mobile', 'auth.verify-mobile')
@@ -15,6 +18,13 @@ Route::middleware(['auth'])->group(function () {
         ->middleware(['throttle:6,1'])
         ->name('verification.verify-mobile');
 });
+
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.mobile.request');
+Auth::routes();
+
+Route::post('password/reset', [ForgotPasswordController::class, 'ResetPassword'])->name('password.update');
+Route::get('password/reset-password-by-code', [ForgotPasswordController::class, 'resetPasswordByCode'])->name('passwords.reset-password-by-code');
+Route::post('password/mobile/get-reset-code', [ForgotPasswordController::class, 'getResetCode'])->name('password.mobile.get-reset-code');
 
 Route::middleware(['auth', 'verify.mobile'])->group(function () {
     Route::get('/dashboard',
@@ -74,5 +84,3 @@ Route::middleware(['auth', 'verify.mobile'])->group(function () {
             Route::get('/search', 'search')->name('search');
         });
 });
-
-Auth::routes();

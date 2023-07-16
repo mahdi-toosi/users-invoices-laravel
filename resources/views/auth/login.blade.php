@@ -32,7 +32,13 @@
                                            class="form-control @error('password') is-invalid @enderror" name="password"
                                            autocomplete="current-password">
                                     <x-form.form-error name="password"/>
+                                    <div class="mt-2">
+                                        <a class="" href="{{ route('password.request') }}">
+                                            بازیابی رمزعبور
+                                        </a>
+                                    </div>
                                 </div>
+
                             </div>
 
                             <div class="row mb-3">
