@@ -358,18 +358,16 @@ a {
 
 .sidebar-wrapper .sidebar-header {
     width: 260px;
-    height: 60px;
-    display: flex;
+    height: 80px;
     align-items: center;
     position: fixed;
     top: 0;
     bottom: 0;
-    padding: 0 15px;
+    padding: 12px 15px;
     z-index: 5;
-    background: #f7f8fa;
     border-left: 1px solid #e2e3e4;
-    border-bottom: 1px solid #e4e4e4;
     background-clip: padding-box;
+    background-color: #0088cc;
     transition: all 0.2s;
 }
 
@@ -404,7 +402,7 @@ a {
     display: -ms-flexbox;
     display: flex;
     padding: 10px;
-    margin-top: 60px;
+    margin-top: 100px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -547,6 +545,12 @@ a {
     }
     .wrapper.toggled:not(.sidebar-hovered) .sidebar-wrapper .metismenu .menu-title {
         display: none;
+    }
+    .wrapper.toggled:not(.sidebar-hovered) .sidebar-header .user-details {
+        display: none !important;
+    }
+    .wrapper.toggled:not(.sidebar-hovered) .sidebar-wrapper .metismenu {
+        margin-top: 60px !important;
     }
     .wrapper.toggled:not(.sidebar-hovered) .sidebar-wrapper .metismenu li ul {
         display: none;

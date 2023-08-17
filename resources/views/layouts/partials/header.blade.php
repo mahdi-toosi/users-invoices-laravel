@@ -5,20 +5,6 @@
             <ul class="navbar-nav align-items-center">
                 @auth
                     <li class="nav-item dropdown dropdown-user-setting">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret border border-2 border-black radius-10"
-                           href="#" data-bs-toggle="dropdown">
-                            <div class="user-setting d-flex align-items-center">
-                                <div class="avatar avatar-small">
-                                    <img
-                                        src="{{ auth()->user()->avatar ? asset('storage/'.auth()->user()->avatar) : asset('/img/user.png')}}"
-                                        alt="Avatar">
-                                </div>
-                                <div class="user-name">
-                                    {{ auth()->user()->full_name }}
-                                </div>
-                            </div>
-                        </a>
-
                         <ul class="dropdown-menu dropdown-menu-start">
                             <li>
                                 <a class="dropdown-item" href="{{ route('home') }}">

@@ -1,7 +1,19 @@
 <aside class="sidebar-wrapper bg-white" data-simplebar="true">
     <div class="sidebar-header bg-white">
-        <i style="font-size: 24px" class="bi bi-slack"></i>
-        <div class="toggle-icon ms-auto"><i class="bi bi-list"></i></div>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="avatar avatar-small">
+                <x-avatar />
+            </div>
+
+            <div class="toggle-icon ms-auto">
+                <i class="bi bi-list"></i>
+            </div>
+        </div>
+
+        <div class="mt-3 d-flex flex-column user-details">
+            <span class="fw-bold">{{ auth()->user()->full_name }}</span>
+            <span class="small-text">{{ auth()->user()->mobile_number }}</span>
+        </div>
     </div>
 
     <ul class="metismenu" id="menu">

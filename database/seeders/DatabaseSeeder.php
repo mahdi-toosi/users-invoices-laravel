@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $admin = User::factory([
             'is_admin' => true,
             'mobile_number' => '09301111357',
+            'password' => bcrypt('12345678'),
         ])
             ->has(
                 Invoice::factory()
