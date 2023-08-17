@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller {
+class LoginController extends Controller
+{
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -20,19 +21,22 @@ class LoginController extends Controller {
 
     use AuthenticatesUsers;
 
-    public function redirectTo() {
-        if ( request()->user()->is_admin ) {
+    public function redirectTo()
+    {
+        if (request()->user()->is_admin) {
             return RouteServiceProvider::HOME;
         }
 
-        return route( 'me.invoices', null, false );
+        return route('me.invoices', null, false);
     }
 
-    public function username() {
+    public function username()
+    {
         return 'mobile_number';
     }
 
-    public function __construct() {
-        $this->middleware( 'guest' )->except( 'logout' );
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
     }
 }

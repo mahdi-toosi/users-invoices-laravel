@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller {
+class RegisterController extends Controller
+{
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -24,8 +25,9 @@ class RegisterController extends Controller {
 
     use RegistersUsers;
 
-    public function redirectTo() {
-        return route( 'me.invoices', null, false );
+    public function redirectTo()
+    {
+        return route('me.invoices', null, false);
     }
 
     /**
@@ -33,8 +35,9 @@ class RegisterController extends Controller {
      *
      * @return void
      */
-    public function __construct() {
-        $this->middleware( 'guest' );
+    public function __construct()
+    {
+        $this->middleware('guest');
     }
 
     /**
@@ -42,18 +45,19 @@ class RegisterController extends Controller {
      *
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator( array $data ) {
-        return Validator::make( $data, [
-            'first_name'    => [ 'required', 'string', 'max:255' ],
-            'last_name'     => [ 'required', 'string', 'max:255' ],
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'mobile_number' => [
                 'required',
                 'string',
                 'unique:users',
-                'regex:/(0)[0-9]{10}/'
+                'regex:/(0)[0-9]{10}/',
             ],
-            'password'      => [ 'required', 'string', 'min:8' ],
-        ] );
+            'password' => ['required', 'string', 'min:8'],
+        ]);
     }
 
     /**
@@ -61,20 +65,22 @@ class RegisterController extends Controller {
      *
      * @return \App\Models\User
      */
-    protected function create( array $data ) {
-        return User::create( [
-            'first_name'    => $data['first_name'],
-            'last_name'     => $data['last_name'],
+    protected function create(array $data)
+    {
+        return User::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'mobile_number' => $data['mobile_number'],
-            'password'      => Hash::make( $data['password'] ),
-        ] );
+            'password' => Hash::make($data['password']),
+        ]);
     }
 
-    protected function registered( Request $request, $user ) {
-        if ( auth()->user() instanceof MustVerifyMobile
+    protected function registered(Request $request, $user)
+    {
+        if (auth()->user() instanceof MustVerifyMobile
              && ! auth()->user()->hasVerifiedMobile()
         ) {
-            auth()->user()->sendMobileVerificationNotification( true );
+            auth()->user()->sendMobileVerificationNotification(true);
         }
     }
 }
