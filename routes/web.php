@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\VerifyMobileController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,18 +27,27 @@ Route::post('password/reset', [ForgotPasswordController::class, 'ResetPassword']
 Route::get('password/reset-password-by-code', [ForgotPasswordController::class, 'resetPasswordByCode'])->name('passwords.reset-password-by-code');
 Route::post('password/mobile/get-reset-code', [ForgotPasswordController::class, 'getResetCode'])->name('password.mobile.get-reset-code');
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+
 Route::middleware(['auth', 'verify.mobile'])->group(function () {
-    Route::get('/dashboard',
-        [App\Http\Controllers\HomeController::class, 'index'])
-        ->name('home');
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
-        ->name('home');
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])
+        ->name('dashboard');
 
     Route::get('/me/invoices', [InvoiceController::class, 'getMyInvoices'])
         ->name('me.invoices');
+
     Route::get('/me/invoices/{invoice}/products',
         [InvoiceController::class, 'getMyInvoiceProduct'])
         ->name('me.invoices.products');
+
+    Route::get('/me/profile', [ProfileController::class, 'show'])
+        ->name('me.profile');
+
+    Route::put('/me/profile', [ProfileController::class, 'updateMyProfile'])
+        ->name('me.profile.update');
+
+    Route::put('/me/profile/change-password', [ProfileController::class, 'updateMyPassword'])
+        ->name('me.profile.change-password');
 
     Route::controller(UserController::class)
         ->prefix('users')

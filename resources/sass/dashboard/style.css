@@ -1711,3 +1711,9 @@ a {
         display: none;
     }
 }
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #0088cc;
+}

@@ -101,7 +101,7 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
-    private function uploadAvatarAndGetPath(Request $request): string|null
+    public function uploadAvatarAndGetPath(Request $request): string|null
     {
         $path = null;
 

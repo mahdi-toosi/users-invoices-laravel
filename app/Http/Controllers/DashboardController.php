@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     public function __construct()
     {
@@ -10,6 +10,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        return view('dashboard');
     }
 }

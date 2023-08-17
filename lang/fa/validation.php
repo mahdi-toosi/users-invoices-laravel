@@ -158,6 +158,8 @@ return [
         'last_name' => 'نام خانوادگی',
         'family' => 'نام خانوادگی',
         'password' => 'رمز عبور',
+        'new_password' => 'رمز عبور جدید',
+        'old_password' => 'رمز عبور قدیمی',
         'password_confirmation' => 'تاییدیه ی رمز عبور',
         'city' => 'شهر',
         'country' => 'کشور',

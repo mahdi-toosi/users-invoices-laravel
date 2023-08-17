@@ -3,46 +3,7 @@
     <nav class="navbar navbar-expand gap-3 bg-white">
         <div class="top-navbar-right">
             <ul class="navbar-nav align-items-center">
-                @auth
-                    <li class="nav-item dropdown dropdown-user-setting">
-                        <ul class="dropdown-menu dropdown-menu-start">
-                            <li>
-                                <a class="dropdown-item" href="{{ route('home') }}">
-                                    <div class="d-flex align-items-center">
-                                        <div class=""><i class="bi bi-speedometer"></i></div>
-                                        <div class="ms-3"><span>داشبورد</span></div>
-                                    </div>
-                                </a>
-                            </li>
 
-                            <li>
-                                <a class="dropdown-item" href="{{ route('users.edit', auth()->user()->id) }}">
-                                    <div class="d-flex align-items-center">
-                                        <div class=""><i class="bi bi-person-circle"></i></div>
-                                        <div class="ms-3"><span>ویرایش حساب کاربری</span></div>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-
-                            <li onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                                <a class="dropdown-item" href="">
-                                    <div class="d-flex align-items-center">
-                                        <div class=""><i class="bi bi-lock-fill"></i></div>
-                                        <div class="ms-3"><span>خروج</span></div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endguest
             </ul>
         </div>
 
