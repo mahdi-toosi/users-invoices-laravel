@@ -11,11 +11,23 @@
                     <form action="{{ route('products.store') }}" method="POST" id="form" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="invoice_id" class="form-label">صورتحساب:</label>
-                            <select id="invoice_id" name="invoice_id"
-                                    class="form-control @error('invoice_id') is-invalid @enderror">
-                                <option value="0" selected>انتخاب صورتحساب</option>
-                            </select>
+                            @if($invoice)
+                                <label for="invoice_id" class="form-label">کاربر</label>
+                                <input type="hidden" id="hard_user_id" name="invoice_id"
+                                       class="form-control"
+                                       value="{{ $invoice->id }}">
+                                <input type="text" id="hard_invoice_id" name="invoice_name"
+                                       class="form-control"
+                                       disabled
+                                       value="{{ $invoice->name }}">
+                            @else
+                                <label for="invoice_id" class="form-label">صورتحساب:</label>
+                                <select id="invoice_id" name="invoice_id"
+                                        class="form-control @error('invoice_id') is-invalid @enderror">
+                                    <option value="0" selected>انتخاب صورتحساب</option>
+                                </select>
+                                <x-form.form-error name="invoice_id"/>
+                            @endif
                             <x-form.form-error name="invoice_id"/>
                         </div>
                         <div class="mb-3">

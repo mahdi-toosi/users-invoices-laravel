@@ -1,21 +1,18 @@
 @extends('layouts.app')
 
-@section('content')
-    <x-page.header>
-        <h4 class="mb-0">محصولات</h4>
-    </x-page.header>
+@section('navbar-header')
+    لیست محصولات
+@endsection
 
-    <div class="raw mt-4">
+@section('start-navbar-header')
+    <x-search :route="route('products.index')" :keyword="$keyword" />
+@endsection
+
+@section('content')
+    <div class="raw">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('products.index') }}" method="GET" class="mt-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="keyword" placeholder="جستجو..."
-                                   value="{{ $keyword }}">
-                            <button class="btn btn-outline-secondary" type="submit">جستجو</button>
-                        </div>
-                    </form>
                     @include('products.table', ['products' => $products])
                 </div>
             </div>

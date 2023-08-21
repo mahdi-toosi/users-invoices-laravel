@@ -3,8 +3,7 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>نام محصول</th>
-            <th>صورتحساب</th>
+            <th>نام کالا</th>
             <th>قیمت</th>
             <th>توضیحات</th>
             <th>فعالیت ها</th>
@@ -15,16 +14,19 @@
             <tr style="vertical-align: baseline;">
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $product->name }}</td>
-                <td>{{ $product->invoice->name }}</td>
                 <td>{{ $product->price }}</td>
                 <td>{{ \Illuminate\Support\Str::limit($product->description, 20)  }}</td>
                 <td>
-                    <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-primary">ویرایش</a>
+                    <a href="{{ route('products.edit', $product) }}" class="text-primary pe-2 ps-2">
+                        <i class="bi bi-pencil"></i>
+                    </a>
                     <form action="{{ route('products.destroy', $product) }}" method="POST"
                           style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger">حذف</button>
+                        <div type="submit" class="text-danger">
+                            <i class="bi bi-trash"></i>
+                        </div>
                     </form>
                 </td>
             </tr>
