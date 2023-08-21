@@ -2,15 +2,18 @@
 
 namespace App\View\Components;
 
+use App\Models\User;
 use Illuminate\View\Component;
 
 class avatar extends Component
 {
+    public $user;
     private string $avatarPath;
 
-    public function __construct()
+    public function __construct($user = null)
     {
-        $this->avatarPath = auth()->user()->avatar ? asset('storage/'.auth()->user()->avatar) : asset('/img/user.png');
+        $this->user = is_null($user) ? auth()->user() : $user;
+        $this->avatarPath = $this->user->avatar ? asset('storage/'.$this->user->avatar) : asset('/img/user.png');
     }
 
     public function render()

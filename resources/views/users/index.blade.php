@@ -1,27 +1,25 @@
 @extends('layouts.app')
 
-@section('content')
-    <x-page.header>
-        <form action="{{ route('users.index') }}" method="GET" class="w-100">
-            <div class="input-group">
-                <input type="text" class="form-control" name="keyword" placeholder="جستجو..." value="{{ $keyword }}">
-                <button class="btn btn-outline-secondary" type="submit">جستجو</button>
-            </div>
-        </form>
-    </x-page.header>
+@section('navbar-header')
+    لیست کاربران
+@endsection
 
+@section('start-navbar-header')
+    <x-search :route="route('users.index')" :keyword="$keyword" />
+@endsection
+
+
+@section('content')
     <div class="card bg-white">
         <div class="card-body">
-
-
             @foreach($users as $user)
-                <a href="{{ route('users.invoices', $user->id) }}" class="d-flex text-body mb-3" style="gap: .5rem">
+                <a href="{{ route('users.invoices', $user->id) }}" class="d-flex text-body pb-2 mb-3" style="gap: .5rem">
                     <div class="avatar avatar-small">
                         <img src="{{ $user->avatar ? asset('storage/'.$user->avatar) : asset('/img/user.png')}}"
                              alt="Avatar">
                     </div>
 
-                    <div>
+                    <div class="">
                         <h6 class="mb-0">{{ $user->first_name }} {{ $user->last_name }}</h6>
                         <small>{{$user->mobile_number}}</small>
                     </div>

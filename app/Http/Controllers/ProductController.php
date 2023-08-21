@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Invoice;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -30,9 +33,16 @@ class ProductController extends Controller
         return view('products.index', compact('products', 'keyword'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return view('products.create');
+        $invoice_id = $request->query->getInt('invoice_id');
+        $invoice = null;
+
+        if ($invoice_id) {
+            $invoice = Invoice::query()->findOrFail($invoice_id);
+        }
+
+        return view('products.create', ['invoice' => $invoice]);
     }
 
     public function store(StoreProductRequest $request)
